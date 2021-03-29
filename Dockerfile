@@ -1,6 +1,6 @@
 
 
-FROM docker:18
+FROM docker:20
 
 RUN apk --no-cache add \
 	git bash coreutils curl git grep sed sudo findutils jq zip make gettext openssh make \
