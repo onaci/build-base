@@ -23,11 +23,11 @@ RUN apk update \
         zip
 
 # Install Hashicorp Vault CLI
-RUN curl https://releases.hashicorp.com/vault/1.8.4/vault_1.8.4_linux_amd64.zip --output /tmp/vault.zip \
+RUN curl https://releases.hashicorp.com/vault/1.9.4/vault_1.9.4_linux_amd64.zip --output /tmp/vault.zip \
   && unzip -u -d /usr/bin/ /tmp/vault.zip \
   && rm /tmp/vault.zip
 
 # Install Hashicorp Terraform CLI
-RUN curl https://releases.hashicorp.com/terraform/1.0.9/terraform_1.0.9_linux_amd64.zip --output /tmp/terraform.zip \
+RUN curl https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip --output /tmp/terraform.zip \
     && unzip -u -d /usr/bin/ /tmp/terraform.zip \
   && rm /tmp/terraform.zip
