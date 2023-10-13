@@ -29,12 +29,15 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/sh
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
 
 # Install tools from custom package repositories
+ARG VAULT_VERSION=1.14.4
+ARG TERRAFORM_VERSION=1.5.5
+
 RUN apt-get update \
     && apt-get install -yq \
         docker-ce \
         docker-ce-cli \
         containerd.io \
-        terraform \
-        vault \
+        terraform=${TERRAFORM_VERSION}-1 \
+        vault=${VAULT_VERSION}-1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
